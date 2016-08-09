@@ -1,0 +1,23 @@
+﻿@model BusinessEntities.UserDetails
+@{
+    ViewBag.Title = "Login";
+}
+<script src="~/Scripts/jquery-1.12.4.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+<link href="~/Content/themes/base/all.css" rel="stylesheet" />
+<h2>Login</h2>
+<div>
+    @Html.ValidationMessage("CredentialError",new {style="color:red"})
+    @using (Html.BeginForm("DoLogin", "Authentication", FormMethod.Post))
+    {
+        @Html.LabelFor(c=>c.UserName)
+        @Html.TextBoxFor(x=>x.UserName)
+        @Html.ValidationMessageFor(x=>x.UserName)
+        <br/>
+        @Html.LabelFor(c=>c.Password)
+        @Html.TextBoxFor(x=>x.Password)
+        <br/>
+        <input type="submit" name="BtnSubmit" value="Login"/>
+    }
+</div>
